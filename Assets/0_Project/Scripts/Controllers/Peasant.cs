@@ -131,6 +131,12 @@ public class Peasant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         armsUpPivot.SetActive(true);
 
         ShowFeet();
+
+        if (!peasantData.isTarget)
+        {
+            gameManager.AddError();
+        }
+        gameManager.AddTentativ();
     }
 
     public void OnPointerExit(PointerEventData eventData)
