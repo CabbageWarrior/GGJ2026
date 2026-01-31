@@ -54,6 +54,9 @@ TagManager:
   - name: EnvForeground
     uniqueID: 4284029187
     locked: 0
+  - name: Overlay
+    uniqueID: 1845771431
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
