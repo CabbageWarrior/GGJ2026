@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PeasantData : MonoBehaviour
+public class PeasantData
 {
     public int patternId;
     public Color baseColor;

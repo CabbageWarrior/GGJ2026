@@ -3,7 +3,8 @@ using UnityEngine;
 public class TutorialState : IGameState
 {
     private GameManager gameManager;
-    private int currentStep = 0;
+    private float timer = 0;
+    private bool running = false;
 
     public TutorialState(GameManager gm)
     {
@@ -13,23 +14,22 @@ public class TutorialState : IGameState
     public void Enter()
     {
         Debug.Log("Tutorial iniziato");
-        currentStep = 0;
-        ShowStep(currentStep);
+
+        timer = 0;
+        gameManager.tutorialPlaceholder.SetActive(true);
+
+        running = true;
     }
 
     public void Update()
     {
-        if (StepCompleted())
+        if (running)
         {
-            currentStep++;
+            timer += Time.deltaTime;
 
-            if (currentStep >= GetTotalSteps())
+            if (timer >= gameManager.tutorialTimer)
             {
                 EndTutorial();
-            }
-            else
-            {
-                ShowStep(currentStep);
             }
         }
     }
@@ -37,7 +37,7 @@ public class TutorialState : IGameState
     public void Exit()
     {
         Debug.Log("Tutorial finito");
-        HideTutorialUI();
+        gameManager.tutorialPlaceholder.SetActive(false);
     }
 
     private void ShowStep(int step)
@@ -46,24 +46,10 @@ public class TutorialState : IGameState
         // Mostra testo / highlight / frecce / UI
     }
 
-    private bool StepCompleted()
-    {
-        // input giocatore o evento (click, movimento, ecc.)
-        return false;
-    }
-
-    private int GetTotalSteps()
-    {
-        return 3; // esempio
-    }
-
     private void EndTutorial()
     {
-        gameManager.ChangeState(gameManager.cutsceneState);
-    }
+        running = false;
 
-    private void HideTutorialUI()
-    {
-        // nascondi overlay tutorial
+        gameManager.ChangeState(gameManager.cutsceneState);
     }
 }

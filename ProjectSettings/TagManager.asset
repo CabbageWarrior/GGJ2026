@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: EnvBackground
+    uniqueID: 3707498489
+    locked: 0
+  - name: GameElement
+    uniqueID: 3517096085
+    locked: 0
+  - name: EnvForeground
+    uniqueID: 4284029187
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

@@ -12,6 +12,8 @@ public class PeopleShuffle : MonoBehaviour
     [Tooltip("Tag of all people to auto-detect and shuffle.")]
     public string peopleTag = "People";
 
+    public int badPeople = 1;
+
     [Tooltip("Duration of smooth movement between spaces (seconds).")]
     public float shuffleDuration = 2f;
 
@@ -32,10 +34,49 @@ public class PeopleShuffle : MonoBehaviour
     private Dictionary<Transform, Vector3> originalPositions;
     private bool isShuffling = false;
 
+    private List<PeasantData> allPeoplePeasantData;
+
+    private GameManager gm;
+
+    private GameManager GM
+    {
+        get
+        {
+            if (gm == null)
+                gm = FindFirstObjectByType<GameManager>();
+            return gm;
+        }
+    }
+
     void OnEnable()
     {
         if (autoStartOnEnable)
             StartShuffle();
+    }
+
+    internal void SetupShuffle(GameObject peasantPrefab, PeasantPartsScriptable peasantParts)
+    {
+        allPeople = new List<Transform>();
+        allPeoplePeasantData = new List<PeasantData>();
+
+        for (int i = 0; i < shuffleSpaces.Length; i++)
+        {
+            PeasantData newPeasantData = new PeasantData();
+            newPeasantData.patternId = UnityEngine.Random.Range(0, peasantParts.patternMasks.Count);
+            newPeasantData.baseColor = peasantParts.baseColors[UnityEngine.Random.Range(0, peasantParts.baseColors.Count)];
+            newPeasantData.patternColor = peasantParts.patternColors[UnityEngine.Random.Range(0, peasantParts.patternColors.Count)];
+            newPeasantData.isTarget = i < badPeople;
+            allPeoplePeasantData.Add(newPeasantData);
+        }
+
+        allPeoplePeasantData.Shuffle();
+
+        for (int i = 0; i < shuffleSpaces.Length; i++)
+        {
+            GameObject newPeasant = Instantiate(peasantPrefab, shuffleSpaces[i].position, Quaternion.identity, this.transform);
+            newPeasant.GetComponent<Peasant>().Init(GM, allPeoplePeasantData[i]);
+            allPeople.Add(newPeasant.transform);
+        }
     }
 
     /// <summary>
@@ -44,8 +85,6 @@ public class PeopleShuffle : MonoBehaviour
     public void StartShuffle()
     {
         // AUTO FIND people by tag
-        GameObject[] peopleObjects = GameObject.FindGameObjectsWithTag(peopleTag);
-        allPeople = peopleObjects.Select(p => p.transform).ToList();
         peopleCount = allPeople.Count;
         spacesCount = shuffleSpaces.Length;
 
@@ -60,6 +99,8 @@ public class PeopleShuffle : MonoBehaviour
             Debug.LogWarning("No shuffle spaces assigned!");
             return;
         }
+
+        PutShoesOn();
 
         // Store original positions
         originalPositions = new Dictionary<Transform, Vector3>();
@@ -88,8 +129,8 @@ public class PeopleShuffle : MonoBehaviour
             {
                 Vector3 targetSpace = shuffleSpaces[i].position;
                 allPeople[i].position = Vector3.Lerp(
-                    originalPositions[allPeople[i]], 
-                    targetSpace, 
+                    originalPositions[allPeople[i]],
+                    targetSpace,
                     shuffleProgress
                 );
             }
@@ -106,6 +147,18 @@ public class PeopleShuffle : MonoBehaviour
     public bool IsShuffling()
     {
         return isShuffling;
+    }
+
+    public void PutShoesOn()
+    {
+        foreach (var person in allPeople)
+        {
+            Peasant peasantComponent = person.GetComponent<Peasant>();
+            if (peasantComponent != null)
+            {
+                peasantComponent.HideFeet();
+            }
+        }
     }
 }
 

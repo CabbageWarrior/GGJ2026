@@ -12,13 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b298326a39db24d8a7d9d7e8512cd2, type: 3}
   m_Name: PeasantParts
   m_EditorClassIdentifier: Assembly-CSharp::PeasantPartsScriptable
-  patternMasks: []
-  baseColors: []
-  patternColors: []
-  goodFeetSprite: {fileID: 0}
-  badFeetSprite: {fileID: 0}
-  shoesSprite: {fileID: 0}
-  chillExpressionSprite: {fileID: 0}
-  surpriseExpressionSprite: {fileID: 0}
-  painExpressionSprite: {fileID: 0}
-  deathExpressionSprite: {fileID: 0}
+  patternMasks:
+  - {fileID: 21300000, guid: f4583fae880f8c649927d67171f998d0, type: 3}
+  - {fileID: 21300000, guid: 2079e90e211fa8d4b9a61d2723ae735a, type: 3}
+  armDownPatternMasks: []
+  armUpPatternMasks: []
+  baseColors:
+  - {r: 1, g: 0.8431373, b: 0, a: 1}
+  - {r: 1, g: 0.2705882, b: 0, a: 1}
+  - {r: 0, g: 0.3921569, b: 0, a: 1}
+  - {r: 0.1176471, g: 0.5647059, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  patternColors:
+  - {r: 0.9333334, g: 0.909804, b: 0.6666667, a: 1}
+  - {r: 1, g: 0.54922354, b: 0.38200003, a: 1}
+  - {r: 0.23086002, g: 0.679, b: 0.23086002, a: 1}
+  - {r: 0.462, g: 0.73458666, b: 1, a: 1}
+  - {r: 0.64599997, g: 0.64599997, b: 0.64599997, a: 1}
+  goodFeetSprite: {fileID: 21300000, guid: f80ee2e1b052e1142b10c2f506879f8b, type: 3}
+  badFeetSprite: {fileID: 21300000, guid: 86b247b1821916848914909958f03e60, type: 3}
+  shoesSprite: {fileID: 21300000, guid: 19192609672aceb4eb8b6f8aaf53d5a9, type: 3}
+  chillExpressionSprite: {fileID: 21300000, guid: d568a6e676a874048b9d4ffabd36141a, type: 3}
+  surpriseExpressionSprite: {fileID: 21300000, guid: b715b6321c2b2ac449f4e98f935b0764, type: 3}
+  painExpressionSprite: {fileID: 21300000, guid: b715b6321c2b2ac449f4e98f935b0764, type: 3}
+  deathExpressionSprite: {fileID: 21300000, guid: b715b6321c2b2ac449f4e98f935b0764, type: 3}

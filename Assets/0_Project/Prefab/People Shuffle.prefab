@@ -128,7 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PeopleShuffle
   shuffleSpaces: []
   peopleTag: People
-  shuffleDuration: 2
+  badPeople: 1
+  shuffleDuration: 0.5
   autoStartOnEnable: 0
   onShuffleStart:
     m_PersistentCalls:
