@@ -4,10 +4,23 @@ public class Peasant : MonoBehaviour
 {
     public SpriteRenderer expressionRenderer;
     public SpriteRenderer bodyRenderer;
-    public SpriteRenderer patternRenderer;
     public SpriteMask patternMask;
-    public SpriteRenderer feetRenderer;
+    public SpriteRenderer armUp1Renderer;
+    public SpriteRenderer armUp2Renderer;
+    public SpriteMask armUp1patternMask;
+    public SpriteMask armUp2patternMask;
+    public SpriteRenderer armDown1Renderer;
+    public SpriteRenderer armDown2Renderer;
+    public SpriteMask armDown1patternMask;
+    public SpriteMask armDown2patternMask;
+    public SpriteRenderer patternRenderer;
+    public SpriteRenderer feetRenderer1;
+    public SpriteRenderer feetRenderer2;
     public GameObject removedShoes;
+
+    [Header("Arms Pivots")]
+    public GameObject armsUpPivot;
+    public GameObject armsDownPivot;
 
     private GameManager gameManager;
     private PeasantData peasantData;
@@ -21,6 +34,19 @@ public class Peasant : MonoBehaviour
         bodyRenderer.color = peasantData.baseColor;
         patternRenderer.color = peasantData.patternColor;
         patternMask.sprite = gameManager.peasantParts.patternMasks[peasantData.patternId];
+
+        if (peasantData.isTarget)
+        {
+            feetRenderer1.sprite = gameManager.peasantParts.badFeetSprite;
+            feetRenderer2.sprite = gameManager.peasantParts.badFeetSprite;
+        }
+        else
+        {
+            feetRenderer1.sprite = gameManager.peasantParts.goodFeetSprite;
+            feetRenderer2.sprite = gameManager.peasantParts.goodFeetSprite;
+        }
+
+        removedShoes.SetActive(true);
     }
 
     public void SetExpression(PeasantExpression expression)
@@ -45,15 +71,21 @@ public class Peasant : MonoBehaviour
     public void ShowFeet()
     {
         if (peasantData.isTarget)
-            feetRenderer.sprite = gameManager.peasantParts.badFeetSprite;
+        {
+            feetRenderer1.sprite = gameManager.peasantParts.badFeetSprite;
+            feetRenderer2.sprite = gameManager.peasantParts.badFeetSprite;
+        }
         else
-            feetRenderer.sprite = gameManager.peasantParts.goodFeetSprite;
-
+        {
+            feetRenderer1.sprite = gameManager.peasantParts.goodFeetSprite;
+            feetRenderer2.sprite = gameManager.peasantParts.goodFeetSprite;
+        }
         removedShoes.SetActive(true);
     }
     public void HideFeet()
     {
-        feetRenderer.sprite = gameManager.peasantParts.shoesSprite;
+        feetRenderer1.sprite = gameManager.peasantParts.shoesSprite;
+        feetRenderer2.sprite = gameManager.peasantParts.shoesSprite;
 
         removedShoes.SetActive(false);
     }
