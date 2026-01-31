@@ -3,6 +3,8 @@ using UnityEngine;
 public class MemorizationState : IGameState
 {
     private GameManager gameManager;
+    private float timer = 0;
+    private bool running = false;
 
     public MemorizationState(GameManager gm)
     {
@@ -13,13 +15,24 @@ public class MemorizationState : IGameState
     {
         Debug.Log("Fase di memorizzazione");
         // Mostra elementi da memorizzare
+
+        gameManager.SetupShuffle();
+
+        timer = 0;
+
+        running = true;
     }
 
     public void Update()
     {
-        if (PlayerReadyToChoose())
+        if (running)
         {
-            gameManager.ChangeState(gameManager.choiceState);
+            timer += Time.deltaTime;
+
+            if (PlayerReadyToChoose())
+            {
+                gameManager.ChangeState(gameManager.choiceState);
+            }
         }
     }
 
@@ -30,6 +43,6 @@ public class MemorizationState : IGameState
 
     private bool PlayerReadyToChoose()
     {
-        return false;
+        return timer >= gameManager.memorizationTimer;
     }
 }

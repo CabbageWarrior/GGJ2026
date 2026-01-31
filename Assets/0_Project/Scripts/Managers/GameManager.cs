@@ -2,8 +2,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Inspector info
     [Header("References")]
     public PeasantPartsScriptable peasantParts;
+
+    [Header("States Params", order = 0)]
+    [Header("==> Tutorial", order = 1)]
+    public GameObject tutorialPlaceholder;
+    public float tutorialTimer = 2f;
+
+    [Header("==> Cutscene")]
+    public GameObject cutscenePlaceholder;
+    public float cutsceneTimer = 3f;
+
+    [Header("==> GamePlay")]
+    public float memorizationTimer = 10f;
+    public PeopleShuffle[] peopleShuffles;
+    public GameObject peasantPrefab;
+    #endregion
 
     private GameStateMachine stateMachine;
 
@@ -12,6 +28,9 @@ public class GameManager : MonoBehaviour
     public CutsceneState cutsceneState;
     public MemorizationState memorizationState;
     public ChoiceState choiceState;
+
+    [HideInInspector]
+    public PeopleShuffle currentShuffle;
 
     void Awake()
     {
@@ -36,5 +55,22 @@ public class GameManager : MonoBehaviour
     public void ChangeState(IGameState newState)
     {
         stateMachine.ChangeState(newState);
+    }
+
+    public void SetupShuffle()
+    {
+        if (currentShuffle)
+        {
+            currentShuffle.gameObject.SetActive(false);
+        }
+
+        int shuffleIndex = Random.Range(0, peopleShuffles.Length);
+        currentShuffle = peopleShuffles[shuffleIndex];
+        currentShuffle.gameObject.SetActive(true);
+        currentShuffle.SetupShuffle(peasantPrefab, peasantParts);
+    }
+    public void StartShuffle()
+    {
+        currentShuffle.StartShuffle();
     }
 }

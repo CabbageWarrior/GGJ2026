@@ -13,6 +13,8 @@ public class ChoiceState : IGameState
     {
         Debug.Log("Fase di scelta");
         // Mostra UI di scelta
+
+        gameManager.currentShuffle.StartShuffle();
     }
 
     public void Update()
