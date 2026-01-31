@@ -6,6 +6,8 @@ public class PeasantPartsScriptable : ScriptableObject
 {
     [Header("Body Parts")]
     public List<Sprite> patternMasks;
+    public List<Sprite> armDownPatternMasks;
+    public List<Sprite> armUpPatternMasks;
     public List<Color> baseColors;
     public List<Color> patternColors;
     public Sprite goodFeetSprite;
