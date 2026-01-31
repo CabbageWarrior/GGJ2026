@@ -359,6 +359,7 @@ MonoBehaviour:
   bodyRenderer: {fileID: 4664230445180904195}
   patternRenderer: {fileID: 3454342584112587890}
   patternMask: {fileID: 7943782896872173859}
+  feetRenderer: {fileID: 8743712441110913489}
   removedShoes: {fileID: 6998904891337591614}
 --- !u!1 &6998904891337591614
 GameObject:
