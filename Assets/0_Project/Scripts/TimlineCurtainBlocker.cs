@@ -13,20 +13,25 @@ public class TimelineCurtainBlocker : MonoBehaviour
 
     [Header("Curtain Positions (3D World Space)")]
     // Posizione APERTA (Gameplay)
-    public Vector3 leftCurtainOpenPos = new Vector3(-15, 0, 5);
-    public Vector3 rightCurtainOpenPos = new Vector3(15, 0, 5);
+    public Vector3 leftCurtainOpenPos = new Vector3(-15, 0, 0);
+    public Vector3 rightCurtainOpenPos = new Vector3(15, 0, 0);
     
     // Posizione CHIUSA (Pausa)
-    public Vector3 curtainClosedPos = Vector3.zero;
+    public Vector3 leftCurtainClosedPos = new Vector3(3.5f, 0, 0);
+    public Vector3 rightCurtainClosedPos = new Vector3(-3.5f, 0, 0);
     
     public float curtainDuration = 1.5f;
+
+    [Header("Final Image Transition")]
+    public Image finalImage;
+    public float imageFadeDuration = 0.5f;
 
     [Header("Invisible Blocker")]
     public Image blockerImage;
 
     [Header("Events")]
-    public UnityEvent onCurtainsClosed;   // Evento lanciato quando le tende sono chiuse
-    public UnityEvent onCurtainsOpened;   // Evento lanciato quando le tende sono aperte
+    public UnityEvent onCurtainsClosed;
+    public UnityEvent onCurtainsOpened;
 
     CanvasGroup canvasGroup;
     GraphicRaycaster graphicRaycaster;
@@ -61,12 +66,19 @@ public class TimelineCurtainBlocker : MonoBehaviour
     
     void Start()
     {
-        // Al via del gioco, assicuriamoci che le tende siano APERTE e invisibili
         foreach (var sprite in leftCurtainSprites)
             if(sprite) sprite.transform.localPosition = leftCurtainOpenPos;
 
         foreach (var sprite in rightCurtainSprites)
             if(sprite) sprite.transform.localPosition = rightCurtainOpenPos;
+
+        if (finalImage) 
+        {
+            Color c = finalImage.color;
+            c.a = 0f;
+            finalImage.color = c;
+            finalImage.gameObject.SetActive(false);
+        }
 
         if(canvasGroup) 
         {
@@ -75,57 +87,59 @@ public class TimelineCurtainBlocker : MonoBehaviour
         }
     }
 
-    // --- METODI PUBBLICI DA COLLEGARE AGLI EVENTI UNITY ---
-
-    // Chiama questo su "On Enter Paused"
     public void CloseCurtains()
     {
         StartCoroutine(CloseSequence());
     }
 
-    // Chiama questo su "On Enter Gameplay" (o "On Exit Paused")
     public void OpenCurtains()
     {
         StartCoroutine(OpenSequence());
     }
 
-    // ------------------------------------------------------
-
+    // UNICO METODO CloseSequence (Ease.InCubic per accelerazione)
     IEnumerator CloseSequence()
     {
-        // 1. Attiva blocker
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
         
-        // 2. Carica sprite (opzionale, se cambiano)
         LoadCurtainSprites();
 
-        // 3. Muovi verso CENTRO (0,0,0) - USARE SetUpdate(true) per TimeScale=0
         foreach (var sprite in leftCurtainSprites)
-            if(sprite) sprite.transform.DOLocalMove(curtainClosedPos, curtainDuration).SetEase(Ease.InOutQuad).SetUpdate(true);
+            if(sprite) sprite.transform.DOLocalMove(leftCurtainClosedPos, curtainDuration).SetEase(Ease.InCubic).SetUpdate(true);
             
         foreach (var sprite in rightCurtainSprites)
-            if(sprite) sprite.transform.DOLocalMove(curtainClosedPos, curtainDuration).SetEase(Ease.InOutQuad).SetUpdate(true);
+            if(sprite) sprite.transform.DOLocalMove(rightCurtainClosedPos, curtainDuration).SetEase(Ease.InCubic).SetUpdate(true);
 
-        // USARE WaitForSecondsRealtime per TimeScale=0
         yield return new WaitForSecondsRealtime(curtainDuration);
+
+        if (finalImage)
+        {
+            finalImage.gameObject.SetActive(true);
+            finalImage.DOFade(1f, imageFadeDuration).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(imageFadeDuration);
+        }
 
         onCurtainsClosed?.Invoke();
     }
 
     IEnumerator OpenSequence()
     {
-        // 1. Muovi verso LATI (Posizione Open) - USARE SetUpdate(true) per TimeScale=0
+        if (finalImage)
+        {
+            finalImage.DOFade(0f, imageFadeDuration).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(imageFadeDuration);
+            finalImage.gameObject.SetActive(false);
+        }
+
         foreach (var sprite in leftCurtainSprites)
             if(sprite) sprite.transform.DOLocalMove(leftCurtainOpenPos, curtainDuration).SetEase(Ease.InOutQuad).SetUpdate(true);
 
         foreach (var sprite in rightCurtainSprites)
             if(sprite) sprite.transform.DOLocalMove(rightCurtainOpenPos, curtainDuration).SetEase(Ease.InOutQuad).SetUpdate(true);
 
-        // USARE WaitForSecondsRealtime per TimeScale=0
         yield return new WaitForSecondsRealtime(curtainDuration);
 
-        // 2. Disattiva blocker
         DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 0f, 0.3f).SetUpdate(true);
         yield return new WaitForSecondsRealtime(0.3f);
         canvasGroup.blocksRaycasts = false;

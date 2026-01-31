@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement; // AGGIUNTO: Serve per il Restart (ricaricare la scena)
 
 public enum GameState
 {
@@ -24,11 +25,18 @@ public class PauseManager : MonoBehaviour
     public GameState CurrentState { get; private set; } = GameState.Gameplay;
 
     void Update()
-{
-    if (Input.GetKeyDown(KeyCode.Escape))
     {
-        Debug.Log("ESC premuto! Stato attuale: " + CurrentState);
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause(); // Pulizia: ho spostato la logica in un metodo riutilizzabile
+        }
+    }
+
+    // Metodo helper per cambiare stato al volo (utile anche da chiamare esternamente se serve)
+    public void TogglePause()
+    {
+        Debug.Log("Toggle Pause Richiamato! Stato attuale: " + CurrentState);
+
         if (CurrentState == GameState.Gameplay)
         {
             Debug.Log("→ ENTRA PAUSE");
@@ -40,7 +48,39 @@ public class PauseManager : MonoBehaviour
             SetState(GameState.Gameplay);
         }
     }
-}
+
+    // --- NUOVE FUNZIONI PER I BOTTONI UI ---
+
+    // Collegalo al bottone "RESUME"
+    public void OnResumeButton()
+    {
+        // Torna semplicemente allo stato Gameplay
+        SetState(GameState.Gameplay);
+    }
+
+    // Collegalo al bottone "RESTART"
+    public void OnRestartButton()
+    {
+        // Importante: ripristina il tempo prima di ricaricare, altrimenti la nuova scena parte freezata!
+        Time.timeScale = 1f;
+        
+        // Ricarica la scena attuale
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Collegalo al bottone "QUIT"
+    public void OnQuitButton()
+    {
+        Debug.Log("Uscita dal gioco...");
+        Application.Quit();
+
+        // Utile per testare l'uscita anche nell'Editor di Unity
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
+    // --- FINE NUOVE FUNZIONI ---
 
     public void SetState(GameState newState)
     {
@@ -73,24 +113,21 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-void EnterPaused() 
-{
-    Time.timeScale = 0f;
-    if (pauseMenuUI) pauseMenuUI.SetActive(true);
-    
-     if (curtainBlocker) curtainBlocker.CloseCurtains();
-    
-    onEnterPaused?.Invoke();
-}
+    void EnterPaused() 
+    {
+        Time.timeScale = 0f;
+        if (pauseMenuUI) pauseMenuUI.SetActive(true);
+        if (curtainBlocker) curtainBlocker.CloseCurtains();
+        
+        onEnterPaused?.Invoke();
+    }
 
-void EnterGameplay() 
-{
-    Time.timeScale = 1f;
-    if (pauseMenuUI) pauseMenuUI.SetActive(false);
-    
-   if (curtainBlocker) curtainBlocker.OpenCurtains();
-    
-    onEnterGameplay?.Invoke();
-}
-
+    void EnterGameplay() 
+    {
+        Time.timeScale = 1f;
+        if (pauseMenuUI) pauseMenuUI.SetActive(false);
+        if (curtainBlocker) curtainBlocker.OpenCurtains();
+        
+        onEnterGameplay?.Invoke();
+    }
 }
