@@ -41,29 +41,68 @@ public class TimelineCurtainBlocker : MonoBehaviour
         SetupBlocker();
     }
 
-    void SetupBlocker()
+        void SetupBlocker()
     {
-        Canvas canvas = Object.FindFirstObjectByType<Canvas>();
-        if (canvas == null)
+        // 1. Cerchiamo o creiamo un oggetto ESPLICITO per il blocker, senza prendere il primo canvas a caso.
+        GameObject blockerGO = GameObject.Find("CurtainBlockerCanvas_World");
+        Canvas canvas;
+
+        if (blockerGO == null)
         {
-            GameObject canvasGO = new GameObject("TimelineCanvas");
-            canvas = canvasGO.AddComponent<Canvas>();
+            blockerGO = new GameObject("CurtainBlockerCanvas_World");
+            canvas = blockerGO.AddComponent<Canvas>();
+            
+            // Configurazione WorldSpace
             canvas.renderMode = RenderMode.WorldSpace;
             canvas.worldCamera = Camera.main;
+            
+            // Impostiamo una dimensione e posizione sensata per coprire la vista
+            // (In WorldSpace il canvas ha una dimensione fisica in metri)
+            RectTransform rt = blockerGO.GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(50, 50); // Grande abbastanza da coprire la visuale
+            rt.position = new Vector3(0, 0, 5); // 5 metri davanti alla camera (aggiusta se serve)
+            rt.rotation = Quaternion.identity;
+            
+            // Aggancia alla camera se deve seguire la visuale
+            if (Camera.main != null)
+            {
+                blockerGO.transform.SetParent(Camera.main.transform, false);
+                rt.localPosition = new Vector3(0, 0, 1f); // 1 metro davanti alla lente
+            }
+        }
+        else
+        {
+            canvas = blockerGO.GetComponent<Canvas>();
         }
 
-        canvasGroup = canvas.gameObject.AddComponent<CanvasGroup>();
+        // 2. Setup CanvasGroup
+        canvasGroup = blockerGO.GetComponent<CanvasGroup>();
+        if (canvasGroup == null) canvasGroup = blockerGO.AddComponent<CanvasGroup>();
+        
         canvasGroup.alpha = 0f;
-        canvasGroup.blocksRaycasts = false;
+        canvasGroup.blocksRaycasts = false; // Parte SPENTO
 
-        graphicRaycaster = canvas.GetComponent<GraphicRaycaster>();
+        // 3. Setup Raycaster
+        graphicRaycaster = blockerGO.GetComponent<GraphicRaycaster>();
         if (graphicRaycaster == null)
-            graphicRaycaster = canvas.gameObject.AddComponent<GraphicRaycaster>();
+            graphicRaycaster = blockerGO.AddComponent<GraphicRaycaster>();
+        
+        // Questo è importante per bloccare oggetti 3D dietro
         graphicRaycaster.blockingObjects = GraphicRaycaster.BlockingObjects.All;
 
-        canvas.sortingOrder = 999;
+        // 4. Sorting Order (Critico)
+        // Deve essere alto (es. 999) per coprire il gioco, 
+        // ma il tuo Menu di Pausa dovrà avere 1000 per stare sopra questo.
+        canvas.sortingOrder = 999; 
+        
+        // 5. Aggiungi Immagine "Muro Invisibile"
+        // In WorldSpace, senza un'immagine fisica grande quanto il canvas, i click passano attraverso il vuoto!
+        Image raycastBlocker = blockerGO.GetComponent<Image>();
+        if (raycastBlocker == null) raycastBlocker = blockerGO.AddComponent<Image>();
+        raycastBlocker.color = Color.clear; // Invisibile
+        raycastBlocker.raycastTarget = true; // Blocca i click
     }
-    
+
     void Start()
     {
         foreach (var sprite in leftCurtainSprites)

@@ -28,7 +28,7 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause(); // Pulizia: ho spostato la logica in un metodo riutilizzabile
+            TogglePause(); 
         }
     }
 
@@ -49,9 +49,9 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    // --- NUOVE FUNZIONI PER I BOTTONI UI ---
+    
 
-    // Collegalo al bottone "RESUME"
+    
     public void OnResumeButton()
     {
         // Torna semplicemente allo stato Gameplay
