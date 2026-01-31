@@ -48,6 +48,9 @@ TagManager:
   - name: GameElement
     uniqueID: 3517096085
     locked: 0
+  - name: Peasant
+    uniqueID: 3312269147
+    locked: 0
   - name: EnvForeground
     uniqueID: 4284029187
     locked: 0
@@ -60,3 +63,5 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  - PeasantBody
+  - PeasantArms
