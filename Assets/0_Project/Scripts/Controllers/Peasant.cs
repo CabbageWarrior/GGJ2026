@@ -28,16 +28,16 @@ public class Peasant : MonoBehaviour
         switch (expression)
         {
             case PeasantExpression.Chill:
-                expressionRenderer.sprite = gameManager.peasantParts.chillExpressionSprite);
+                expressionRenderer.sprite = gameManager.peasantParts.chillExpressionSprite;
                 break;
             case PeasantExpression.Surprise:
-                expressionRenderer.sprite = gameManager.peasantParts.surpriseExpressionSprite);
+                expressionRenderer.sprite = gameManager.peasantParts.surpriseExpressionSprite;
                 break;
             case PeasantExpression.Pain:
-                expressionRenderer.sprite = gameManager.peasantParts.painExpressionSprite);
+                expressionRenderer.sprite = gameManager.peasantParts.painExpressionSprite;
                 break;
             case PeasantExpression.Death:
-                expressionRenderer.sprite = gameManager.peasantParts.deathExpressionSprite);
+                expressionRenderer.sprite = gameManager.peasantParts.deathExpressionSprite;
                 break;
         }
     }
