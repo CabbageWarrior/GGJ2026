@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PeasantParts
   m_EditorClassIdentifier: Assembly-CSharp::PeasantPartsScriptable
   patternMasks:
-  - {fileID: 21300000, guid: 88c8c686f63607f44aafd710531563f3, type: 3}
+  - {fileID: 21300000, guid: f4583fae880f8c649927d67171f998d0, type: 3}
   - {fileID: 21300000, guid: 2079e90e211fa8d4b9a61d2723ae735a, type: 3}
   armDownPatternMasks: []
   armUpPatternMasks: []
