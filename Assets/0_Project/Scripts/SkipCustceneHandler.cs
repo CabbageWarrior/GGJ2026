@@ -1,20 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
-public class SkipCustceneHandler : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+public class SkipOnInput : MonoBehaviour
+{
+    [Header("Configuration")]
+    public string nextSceneName; // Type the exact scene name in Inspector
+    public KeyCode skipKey = KeyCode.Escape;
+
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(skipKey))
         {
-             SceneManager.LoadScene(2);
+            SkipScene();
         }
+    }
+
+    void SkipScene()
+    {
+        // Optional: Stop music immediately?
+        // if (AudioManager.Instance != null) AudioManager.Instance.Music.PlayTrack(MusicTrack.None);
+
+        SceneManager.LoadScene(2);
     }
 }
