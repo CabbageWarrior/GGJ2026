@@ -4,11 +4,13 @@ using MyGame.Audio; // Ensure this is here if using Namespaces
 
 public class UIButtonSounds : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 {
+     public AudioManager audioManager;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (AudioManager.Instance != null && AudioManager.Instance.UI != null)
+       
+        if (audioManager != null && audioManager.UI != null)
         {
-            AudioManager.Instance.UI.PlayHover();
+            audioManager.UI.PlayHover();
         }
     }
 
@@ -17,9 +19,9 @@ public class UIButtonSounds : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     {
         // Debug.Log("Button Click Detected on: " + gameObject.name); // Optional Debug
 
-        if (AudioManager.Instance != null && AudioManager.Instance.UI != null)
+        if (audioManager != null && audioManager.UI != null)
         {
-            AudioManager.Instance.UI.PlayClick();
+            audioManager.UI.PlayClick();
         }
     }
 }

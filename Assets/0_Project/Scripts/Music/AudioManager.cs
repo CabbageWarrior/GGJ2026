@@ -16,10 +16,6 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         // Auto-find children components
         Music = GetComponentInChildren<MusicController>();
         SFX = GetComponentInChildren<SFXPool>();

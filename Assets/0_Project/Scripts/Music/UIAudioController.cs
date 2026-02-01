@@ -2,8 +2,10 @@ using UnityEngine;
 
 namespace MyGame.Audio // Added namespace to avoid conflicts
 {
+  
     public class UIAudioController : MonoBehaviour
     {
+        public AudioManager audioManager;
         [Header("UI Audio Clips")]
         public AudioClip clickSound;
         public AudioClip hoverSound;
@@ -16,13 +18,13 @@ namespace MyGame.Audio // Added namespace to avoid conflicts
         {
             if (clickSound == null) return;
             // Access the global AudioManager to play via the SFX pool
-            AudioManager.Instance.SFX.Play(clickSound, volume);
+            audioManager.SFX.Play(clickSound, volume);
         }
 
         public void PlayHover()
         {
             if (hoverSound == null) return;
-            AudioManager.Instance.SFX.Play(hoverSound, volume); // Slightly quieter
+            audioManager.SFX.Play(hoverSound, volume); // Slightly quieter
         }
     }
 }
