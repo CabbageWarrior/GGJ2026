@@ -1,36 +1,28 @@
 using UnityEngine;
 
-public class UIAudioController : MonoBehaviour
+namespace MyGame.Audio // Added namespace to avoid conflicts
 {
-    [Header("UI Clips")]
-    public AudioClip buttonClick;
-    
-    // Add more here if needed (e.g., Hover, Back, Error)
-    // public AudioClip buttonHover;
-
-    private AudioSource audioSource;
-
-    void Awake()
+    public class UIAudioController : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        if (!audioSource) audioSource = gameObject.AddComponent<AudioSource>();
-        
-        audioSource.playOnAwake = false;
-        audioSource.loop = false;
-    }
+        [Header("UI Audio Clips")]
+        public AudioClip clickSound;
+        public AudioClip hoverSound;
 
-    public void PlayClick()
-    {
-        PlayOneShot(buttonClick);
-    }
+        [Header("Settings")]
+        [Range(0f, 3f)] public float volume = 1f;
 
-    private void PlayOneShot(AudioClip clip)
-    {
-        if (clip != null && audioSource != null)
+        // We use the SFX Pool to play sounds so rapid clicks don't cut each other off
+        public void PlayClick()
         {
-            // Optional: minimal pitch variation to make it sound organic
-            audioSource.pitch = Random.Range(0.95f, 1.05f);
-            audioSource.PlayOneShot(clip);
+            if (clickSound == null) return;
+            // Access the global AudioManager to play via the SFX pool
+            AudioManager.Instance.SFX.Play(clickSound, volume);
+        }
+
+        public void PlayHover()
+        {
+            if (hoverSound == null) return;
+            AudioManager.Instance.SFX.Play(hoverSound, volume); // Slightly quieter
         }
     }
 }
