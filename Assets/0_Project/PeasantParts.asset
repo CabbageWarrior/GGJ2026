@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PeasantPartsScriptable
   patternMasks:
   - {fileID: 21300000, guid: f4583fae880f8c649927d67171f998d0, type: 3}
-  - {fileID: 21300000, guid: 2079e90e211fa8d4b9a61d2723ae735a, type: 3}
+  - {fileID: 21300000, guid: cbfdd453bacc2734e8764ae431e7c159, type: 3}
+  - {fileID: 21300000, guid: 4df5beb18a51fc443ad2c268f49f8f05, type: 3}
+  - {fileID: 21300000, guid: 1f16e4a9d6d7f8d44a9c9ffd28fef8a5, type: 3}
   armDownPatternMasks: []
   armUpPatternMasks: []
   baseColors:

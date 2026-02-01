@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PeopleShuffle currentShuffle;
 
+    private int tentativCounter = 0;
+    private int errorCounter = 0;
+
     void Awake()
     {
         stateMachine = new GameStateMachine();
@@ -72,5 +75,33 @@ public class GameManager : MonoBehaviour
     public void StartShuffle()
     {
         currentShuffle.StartShuffle();
+    }
+
+    public void AddTentativ()
+    {
+        tentativCounter++;
+
+        if (tentativCounter - errorCounter == currentShuffle.badPeople)
+        {
+            DoWin();
+        }
+    }
+    public void AddError()
+    {
+        errorCounter++;
+
+        if (errorCounter >= 3)
+        {
+            DoGameOver();
+        }
+    }
+
+    private void DoWin()
+    {
+        Debug.Log("You Win!");
+    }
+    private void DoGameOver()
+    {
+        Debug.Log("Game Over!");
     }
 }
