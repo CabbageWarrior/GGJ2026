@@ -3,6 +3,7 @@ using System.Collections; // Required for Coroutines
 
 public class LevelMusicPlayer : MonoBehaviour
 {
+    public AudioManager audioManager;
     [Header("Sequence Settings")]
     public MusicTrack introTrack = MusicTrack.None; // Optional Intro
     public MusicTrack mainLoopTrack; // The actual level music
@@ -47,9 +48,9 @@ public class LevelMusicPlayer : MonoBehaviour
 
     private void PlayTrack(MusicTrack track)
     {
-        if (AudioManager.Instance != null && AudioManager.Instance.Music != null)
+        if (audioManager != null && audioManager.Music != null)
         {
-            AudioManager.Instance.Music.PlayTrack(track);
+            audioManager.Music.PlayTrack(track);
         }
     }
 
@@ -57,12 +58,12 @@ public class LevelMusicPlayer : MonoBehaviour
     // Ideally, AudioManager would tell us, but we can grab it if we have the reference.
     private float GetClipLength(MusicTrack track)
     {
-        if (AudioManager.Instance == null) return 0f;
+        if (audioManager == null) return 0f;
         
         // Use the internal method from MusicController if public, or a quick switch here
         // Since MusicController.GetClip is private, we rely on a manual check or make it public.
         // For now, let's assume we can add a helper to MusicController or just hardcode/estimate.
         // BETTER SOLUTION: Let's add a public helper to MusicController.cs (Step 2 below).
-        return AudioManager.Instance.Music.GetClipDuration(track); 
+        return audioManager.Music.GetClipDuration(track); 
     }
 }

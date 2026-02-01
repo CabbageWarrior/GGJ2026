@@ -4,7 +4,6 @@ using MyGame.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
 
     // Sub-Controllers
     public MusicController Music { get; private set; }
