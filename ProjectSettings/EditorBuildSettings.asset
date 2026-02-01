@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/0_Project/Scenes/Casetta.unity
     guid: f8b4ad734c7c90245956be0af1c44b08
   - enabled: 1
-    path: Assets/TestAnimazione.unity
+    path: Assets/0_Project/Scenes/TestAnimazione.unity
     guid: ce3f562de65d6614b9453df3e29b4d55
   - enabled: 1
     path: Assets/0_Project/Scenes/GameplayScene.unity
