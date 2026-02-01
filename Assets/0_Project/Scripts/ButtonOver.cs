@@ -1,36 +1,38 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Required for UI events
+using UnityEngine.EventSystems;
 
-public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     [Header("The Image to Show")]
     public GameObject iconImage; 
 
-    // Called when Mouse enters the button area
+    void Awake()
+    {
+        // SAFETY: Automatically hide the icon when the game starts (or menu opens)
+        // This means you can keep it visible in the Editor for easier positioning!
+        HideIcon();
+    }
+
+    // Also ensure it resets whenever the menu is re-opened
+    void OnEnable()
+    {
+        HideIcon();
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         ShowIcon();
     }
 
-    // Called when Mouse leaves the button area
     public void OnPointerExit(PointerEventData eventData)
     {
         HideIcon();
     }
 
-    // Called when Mouse Clicks (or Finger Taps)
+    // Optional: Keep showing on click (good for mobile feeling)
     public void OnPointerDown(PointerEventData eventData)
     {
-        ShowIcon(); // Ensures it shows on tap for mobile
-    }
-
-    // Called when Click/Tap is released
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        // On mobile, you might want to keep it or hide it.
-        // Usually, we hide it or let the button action change the scene.
-        // For now, let's keep it visible until the pointer exits (for mouse)
-        // or hide it if you want a "flash" effect.
+        ShowIcon();
     }
 
     void ShowIcon()
@@ -41,11 +43,5 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void HideIcon()
     {
         if (iconImage != null) iconImage.SetActive(false);
-    }
-
-    // Safety check: ensure it's hidden when the object is disabled (e.g. menu closes)
-    void OnDisable()
-    {
-        HideIcon();
     }
 }

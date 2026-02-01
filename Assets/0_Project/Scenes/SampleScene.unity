@@ -151,14 +151,13 @@ GameObject:
   - component: {fileID: 76873010}
   - component: {fileID: 76873013}
   - component: {fileID: 76873012}
-  - component: {fileID: 76873011}
   m_Layer: 0
   m_Name: ButtonHoverQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &76873010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -178,19 +177,6 @@ RectTransform:
   m_AnchoredPosition: {x: -324.82504, y: -4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &76873011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 76873009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!114 &76873012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +315,7 @@ GameObject:
   - component: {fileID: 322364260}
   - component: {fileID: 322364259}
   - component: {fileID: 322364258}
+  - component: {fileID: 322364261}
   m_Layer: 0
   m_Name: Restart
   m_TagString: Untagged
@@ -450,6 +437,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322364256}
   m_CullTransparentMesh: 1
+--- !u!114 &322364261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322364256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 1052182606}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -587,6 +588,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.PhysicsRaycaster
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &355797948
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +926,7 @@ GameObject:
   - component: {fileID: 648378759}
   - component: {fileID: 648378758}
   - component: {fileID: 648378757}
+  - component: {fileID: 648378760}
   m_Layer: 0
   m_Name: Resume
   m_TagString: Untagged
@@ -1030,6 +1048,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648378755}
   m_CullTransparentMesh: 1
+--- !u!114 &648378760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648378755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 1008136061}
 --- !u!1 &821665898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,14 +1212,13 @@ GameObject:
   - component: {fileID: 1008136062}
   - component: {fileID: 1008136065}
   - component: {fileID: 1008136064}
-  - component: {fileID: 1008136063}
   m_Layer: 0
   m_Name: ButtonHoverResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1008136062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1208,19 +1238,6 @@ RectTransform:
   m_AnchoredPosition: {x: -325, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1008136063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008136061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!114 &1008136064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,14 +1287,13 @@ GameObject:
   - component: {fileID: 1052182607}
   - component: {fileID: 1052182610}
   - component: {fileID: 1052182609}
-  - component: {fileID: 1052182608}
   m_Layer: 0
   m_Name: ButtonHoverRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1052182607
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1297,19 +1313,6 @@ RectTransform:
   m_AnchoredPosition: {x: -325.0001, y: -5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1052182608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052182606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!114 &1052182609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +1428,7 @@ GameObject:
   - component: {fileID: 1351621887}
   - component: {fileID: 1351621886}
   - component: {fileID: 1351621885}
+  - component: {fileID: 1351621888}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -1546,6 +1550,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351621883}
   m_CullTransparentMesh: 1
+--- !u!114 &1351621888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351621883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 76873009}
 --- !u!1 &1694165443
 GameObject:
   m_ObjectHideFlags: 0
