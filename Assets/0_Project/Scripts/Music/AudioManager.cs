@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using MyGame.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -74,7 +75,7 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", volume);
         PlayerPrefs.Save();
         SetVolume("SFXVolume", volume);
-        SetVolume("WetSFXVolume", volume);
+        //SetVolume("WetSFXVolume", volume);
         SetVolume("UIVolume", volume);
     }
 
