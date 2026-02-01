@@ -128,7 +128,9 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         if (pauseMenuUI) pauseMenuUI.SetActive(true);
         if (curtainBlocker) curtainBlocker.CloseCurtains();
-        
+
+        //audioManager.PlayInterruption();
+
         onEnterPaused?.Invoke();
     }
 

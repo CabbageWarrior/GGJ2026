@@ -65,8 +65,10 @@ public class GameManager : MonoBehaviour
     {
         stateMachine.Update();
     }
-    void ResetGame()
+    public void ResetGame()
     {
+        currentShuffle.DestroyPeasants();
+
         isWin = false;
         tentativCounter = 0;
         errorCounter = 0;

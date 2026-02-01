@@ -180,6 +180,15 @@ public class PeopleShuffle : MonoBehaviour
             }
         }
     }
+
+    public void DestroyPeasants()
+    {
+        for (int i = allPeople.Count - 1; i >= 0; i--)
+        {
+            Destroy(allPeople[i].gameObject);
+        }
+        allPeople.Clear();
+    }
 }
 
 // Shuffle extension
