@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CollisioneCambioLivello : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,8 +18,8 @@ public class CollisioneCambioLivello : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Funziona???");
-       // SceneManager.LoadScene("Gioco");
+       // Debug.Log("Funziona???");
+       SceneManager.LoadScene(2);
         
 
 
