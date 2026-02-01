@@ -93,4 +93,21 @@ public class AudioManager : MonoBehaviour
         float dB = Mathf.Log10(normalized) * 20f;
         audioMixer.SetFloat(parameterName, dB);
     }
+    public void PauseMusic()
+    {
+        if (Music != null) 
+        {
+            var source = Music.GetComponent<AudioSource>();
+            if (source != null) source.Pause();
+        }
+    }
+
+    public void UnpauseMusic()
+    {
+        if (Music != null) 
+        {
+            var source = Music.GetComponent<AudioSource>();
+            if (source != null) source.UnPause();
+        }
+    }
 }
