@@ -669,6 +669,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7862496191918716483, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1105634591}
     - target: {fileID: 8144006049002140790, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
       propertyPath: m_Name
       value: ==PAUSE==
