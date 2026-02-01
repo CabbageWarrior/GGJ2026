@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac88bdc42b6e4111a61a622d073c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelMusicPlayer
+  audioManager: {fileID: 1105634591}
   introTrack: 2
   mainLoopTrack: 3
   playOnStart: 1
@@ -1080,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7eaf769cb0b64569b1f41141c3a8431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyGame.Audio.UIAudioController
+  audioManager: {fileID: 1105634591}
   clickSound: {fileID: 8300000, guid: 5c60aad5d95f0407eb3f685426b91540, type: 3}
   hoverSound: {fileID: 8300000, guid: a4881dcd160a34827a0507881cd4f139, type: 3}
   volume: 1
