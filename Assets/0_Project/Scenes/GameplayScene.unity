@@ -1692,6 +1692,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 723289939584643441, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 723289939584643441, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 723289939584643441, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2487952561736798079, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1744,9 +1756,55 @@ PrefabInstance:
       propertyPath: gameEndGoodGO
       value: 
       objectReference: {fileID: 1625659350}
+    - target: {fileID: 4538507998584290189, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: tutorialTimer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6518405212370159913, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754818712173982258, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754818712173982258, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754818712173982258, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754818712173982258, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_text
+      value: 'FIND THE BLISTERS.
+
+        MAKE THEM <b><color=#AA0000>PAY</color></b>.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_fontSize
+      value: 112.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 889767282fd3b43459068caaae456b8c, type: 2}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 112.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4782735801193211810, guid: 889767282fd3b43459068caaae456b8c, type: 2}
+    - target: {fileID: 7414553559795837305, guid: 48328ae53e92eea45a4c86f8264fc212, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
