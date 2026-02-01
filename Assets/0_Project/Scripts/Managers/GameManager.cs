@@ -41,7 +41,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isWin = false;
 
+    [HideInInspector]
     public int tentativCounter = 0;
+    [HideInInspector]
     public int errorCounter = 0;
 
     void Awake()
