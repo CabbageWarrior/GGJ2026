@@ -140,6 +140,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &120111824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 434150493018211666, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+  m_PrefabInstance: {fileID: 4148275843060612134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &120111830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120111824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1617508362}
+          m_TargetAssemblyTypeName: MyGame.Audio.UIAudioController, Assembly-CSharp
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +566,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1044736636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 541180633796145662, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+  m_PrefabInstance: {fileID: 4148275843060612134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1044736642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044736636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1617508362}
+          m_TargetAssemblyTypeName: MyGame.Audio.UIAudioController, Assembly-CSharp
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &1378788799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3777112604859795296, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+  m_PrefabInstance: {fileID: 4148275843060612134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1378788805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378788799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1617508362}
+          m_TargetAssemblyTypeName: MyGame.Audio.UIAudioController, Assembly-CSharp
+          m_MethodName: PlayHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1521573713
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,9 +734,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1794203632}
   - {fileID: 1521573714}
-  - {fileID: 1617508361}
   - {fileID: 2093035620}
+  - {fileID: 1617508361}
   - {fileID: 1736929745}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -683,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MyGame.Audio.UIAudioController
   clickSound: {fileID: 8300000, guid: 5c60aad5d95f0407eb3f685426b91540, type: 3}
-  hoverSound: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: a4881dcd160a34827a0507881cd4f139, type: 3}
   volume: 1
 --- !u!1 &1694165443
 GameObject:
@@ -805,12 +908,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794203630}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1567420879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2093035619
 GameObject:
@@ -1196,7 +1299,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3777112604859795296, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378788805}
+    - targetCorrespondingSourceObject: {fileID: 434150493018211666, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 120111830}
+    - targetCorrespondingSourceObject: {fileID: 541180633796145662, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1044736642}
   m_SourcePrefab: {fileID: 100100000, guid: d58fdcf90de180045b925b3899b6e1a1, type: 3}
 --- !u!1001 &7785111584210928331
 PrefabInstance:
@@ -1333,4 +1445,3 @@ SceneRoots:
   - {fileID: 4148275843060612134}
   - {fileID: 355797951}
   - {fileID: 1567420879}
-  - {fileID: 1794203632}

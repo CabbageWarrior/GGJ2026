@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public SFXPool SFX { get; private set; }
     public EnvironmentAudioController Env { get; private set; }
     public UIAudioController UI { get; private set; }
+    
 
     [SerializeField] private AudioMixer audioMixer;
 
@@ -46,6 +47,10 @@ public class AudioManager : MonoBehaviour
     public void PlayTravelMusic()    => Music.PlayTrack(MusicTrack.Travel);
     public void PlayWinMusic()       => Music.PlayTrack(MusicTrack.Win);
     public void PlayLoseMusic()      => Music.PlayTrack(MusicTrack.Lose);
+    // Shortcut to tell the Music Controller to interrupt
+    public void PlayInterruption(MusicTrack track) => Music.PlayInterruption(track);
+    // Shortcut to tell the Music Controller to resume
+    public void ResumeLastMusic() => Music.ResumeMusic();   
     
     // UI
     public void PlayBtnClick()       => UI.PlayClick();
