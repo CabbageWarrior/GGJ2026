@@ -62,10 +62,18 @@ public class PeopleShuffle : MonoBehaviour
         for (int i = 0; i < shuffleSpaces.Length; i++)
         {
             PeasantData newPeasantData = new PeasantData();
-            newPeasantData.patternId = UnityEngine.Random.Range(0, peasantParts.patternMasks.Count);
-            newPeasantData.baseColor = peasantParts.baseColors[UnityEngine.Random.Range(0, peasantParts.baseColors.Count)];
-            newPeasantData.patternColor = peasantParts.patternColors[UnityEngine.Random.Range(0, peasantParts.patternColors.Count)];
             newPeasantData.isTarget = i < badPeople;
+            do
+            {
+                newPeasantData.patternId = UnityEngine.Random.Range(0, peasantParts.patternMasks.Count);
+                newPeasantData.baseColor = peasantParts.baseColors[UnityEngine.Random.Range(0, peasantParts.baseColors.Count)];
+                newPeasantData.patternColor = peasantParts.patternColors[UnityEngine.Random.Range(0, peasantParts.patternColors.Count)];
+            }
+            while (allPeoplePeasantData.Any(p =>
+                p.patternId == newPeasantData.patternId &&
+                p.baseColor == newPeasantData.baseColor &&
+                p.patternColor == newPeasantData.patternColor));
+
             allPeoplePeasantData.Add(newPeasantData);
         }
 
@@ -157,6 +165,18 @@ public class PeopleShuffle : MonoBehaviour
             if (peasantComponent != null)
             {
                 peasantComponent.HideFeet();
+            }
+        }
+    }
+
+    public void SetChoicePhase(bool p_isChoiceTime)
+    {
+        foreach (var person in allPeople)
+        {
+            Peasant peasantComponent = person.GetComponent<Peasant>();
+            if (peasantComponent != null)
+            {
+                peasantComponent.SetChoicePhase(p_isChoiceTime);
             }
         }
     }

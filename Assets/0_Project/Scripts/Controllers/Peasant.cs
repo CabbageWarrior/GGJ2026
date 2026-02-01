@@ -1,13 +1,14 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Peasant : MonoBehaviour
+public class Peasant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public SpriteRenderer expressionRenderer;
 
     public SpriteRenderer bodyRenderer;
     public SpriteMask patternMask;
     public SpriteRenderer patternRenderer;
-    
+
     public SpriteRenderer armUp1Renderer;
     public SpriteRenderer armUp2Renderer;
     public SpriteMask armUp1PatternMask;
@@ -32,6 +33,9 @@ public class Peasant : MonoBehaviour
 
     private GameManager gameManager;
     private PeasantData peasantData;
+
+    private bool isChoiceTime = false;
+    private bool isChosen = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Init(GameManager p_gameManager, PeasantData p_peasantData)
@@ -111,5 +115,46 @@ public class Peasant : MonoBehaviour
         feetRenderer2.sprite = gameManager.peasantParts.shoesSprite;
 
         removedShoes.SetActive(false);
+    }
+
+    public void SetChoicePhase(bool p_isChoiceTime)
+    {
+        isChoiceTime = p_isChoiceTime;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!isChoiceTime || isChosen)
+            return;
+
+        isChosen = true;
+
+        SetExpression(PeasantExpression.Surprise);
+        armsDownPivot.SetActive(false);
+        armsUpPivot.SetActive(true);
+
+        ShowFeet();
+
+        if (!peasantData.isTarget)
+        {
+            gameManager.AddError();
+        }
+        gameManager.AddTentativ();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!isChoiceTime || isChosen)
+            return;
+
+        SetExpression(PeasantExpression.Chill);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!isChoiceTime || isChosen)
+            return;
+
+        SetExpression(PeasantExpression.Surprise);
     }
 }

@@ -15,19 +15,19 @@ public class ChoiceState : IGameState
         // Mostra UI di scelta
 
         gameManager.currentShuffle.StartShuffle();
+
+        gameManager.currentShuffle.SetChoicePhase(true);
     }
 
     public void Update()
     {
-        if (ChoiceCompleted())
-        {
-            gameManager.ChangeState(gameManager.cutsceneState);
-            // oppure vai avanti col livello
-        }
+        
     }
 
     public void Exit()
     {
+        gameManager.currentShuffle.SetChoicePhase(false);
+
         Debug.Log("Fine scelta");
     }
 

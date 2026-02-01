@@ -50,6 +50,6 @@ public class TutorialState : IGameState
     {
         running = false;
 
-        gameManager.ChangeState(gameManager.cutsceneState);
+        gameManager.ChangeState(gameManager.memorizationState);
     }
 }

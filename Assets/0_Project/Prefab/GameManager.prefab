@@ -836,9 +836,8 @@ MonoBehaviour:
   tutorialTimer: 1
   cutscenePlaceholder: {fileID: 2045279565645358773}
   cutsceneTimer: 1
-  memorizationTimer: 10
+  memorizationTimer: 5
   peopleShuffles:
-  - {fileID: 2700197424589003449}
   - {fileID: 5106197241659958763}
   - {fileID: 1075325011828362315}
   peasantPrefab: {fileID: 6951287874430038506, guid: 444091f2e3aacb14c831a48448018dbd, type: 3}
@@ -1113,6 +1112,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
+      propertyPath: shuffleDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
       propertyPath: shuffleSpaces.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -1246,6 +1249,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4304743621198155970}
     m_Modifications:
     - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
+      propertyPath: shuffleDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
       propertyPath: shuffleSpaces.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1331,17 +1338,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3839907121867785697, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
   m_PrefabInstance: {fileID: 4015310501126597433}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2700197424589003449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
-  m_PrefabInstance: {fileID: 4015310501126597433}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561fab4819617477b92f6f97fdb5651c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PeopleShuffle
 --- !u!1001 &6060969570577814635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1353,6 +1349,10 @@ PrefabInstance:
     - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
       propertyPath: badPeople
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
+      propertyPath: shuffleDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1351142423715557760, guid: 154c2851362d6477fa41e5357a9e93bd, type: 3}
       propertyPath: shuffleSpaces.Array.size
