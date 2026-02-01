@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5634371436941656505}
   - component: {fileID: 5173088833547264979}
   - component: {fileID: 1089082513809384597}
+  - component: {fileID: 8665877579794940544}
   m_Layer: 0
   m_Name: Restart
   m_TagString: Untagged
@@ -133,6 +134,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8665877579794940544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434150493018211666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 4426172231300251956}
 --- !u!1 &479813521108792189
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +315,7 @@ GameObject:
   - component: {fileID: 5146846515015777840}
   - component: {fileID: 1468411325524486746}
   - component: {fileID: 4566999581359820110}
+  - component: {fileID: 5928609504274856780}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -422,6 +437,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5928609504274856780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541180633796145662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 792532780823216546}
 --- !u!1 &792532780823216546
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,14 +461,13 @@ GameObject:
   - component: {fileID: 5722629445449010359}
   - component: {fileID: 6487250559017520624}
   - component: {fileID: 3074723976096818364}
-  - component: {fileID: 686568918523210758}
   m_Layer: 0
   m_Name: ButtonHoverQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5722629445449010359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -498,19 +525,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &686568918523210758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792532780823216546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!1 &1226424695048672120
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,14 +793,13 @@ GameObject:
   - component: {fileID: 4954796154270036532}
   - component: {fileID: 5842583149933961035}
   - component: {fileID: 3866383631713111806}
-  - component: {fileID: 7816670603945028604}
   m_Layer: 0
   m_Name: ButtonHoverResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4954796154270036532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -844,19 +857,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7816670603945028604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807529795249712716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!1 &3777112604859795296
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 5734707967316599446}
   - component: {fileID: 6663781713079994921}
   - component: {fileID: 982058397003541848}
+  - component: {fileID: 2371460309781806973}
   m_Layer: 0
   m_Name: Resume
   m_TagString: Untagged
@@ -990,6 +991,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2371460309781806973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3777112604859795296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
+  iconImage: {fileID: 2807529795249712716}
 --- !u!1 &4426172231300251956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,14 +1015,13 @@ GameObject:
   - component: {fileID: 8049086865964900020}
   - component: {fileID: 1067051168168648110}
   - component: {fileID: 355273987185114584}
-  - component: {fileID: 7333732408030097727}
   m_Layer: 0
   m_Name: ButtonHoverRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8049086865964900020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1066,19 +1079,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7333732408030097727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4426172231300251956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1c829f88f2248cfbd44824c2aadf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonHover
-  iconImage: {fileID: 0}
 --- !u!1 &4635018948704414943
 GameObject:
   m_ObjectHideFlags: 0
