@@ -23,8 +23,6 @@ public class PauseManager : MonoBehaviour
     public UnityEvent onExitPaused;
     public UnityEvent<GameState> onStateChanged;
 
-    public AudioManager audioManager;
-
     public GameState CurrentState { get; private set; } = GameState.Gameplay;
 
     void Update()
