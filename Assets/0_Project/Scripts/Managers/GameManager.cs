@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,40 +20,56 @@ public class GameManager : MonoBehaviour
     public float memorizationTimer = 10f;
     public PeopleShuffle[] peopleShuffles;
     public GameObject peasantPrefab;
+
+    [Header("==> End")]
+    public GameObject gameEndGO;
+    public GameObject gameEndGoodGO;
+    public GameObject gameEndBadGO;
     #endregion
 
     private GameStateMachine stateMachine;
 
     // Game states
     public TutorialState tutorialState;
-    public CutsceneState cutsceneState;
     public MemorizationState memorizationState;
     public ChoiceState choiceState;
+    public GameEndState gameEndState;
 
     [HideInInspector]
     public PeopleShuffle currentShuffle;
 
-    private int tentativCounter = 0;
-    private int errorCounter = 0;
+    [HideInInspector]
+    public bool isWin = false;
+
+    public int tentativCounter = 0;
+    public int errorCounter = 0;
 
     void Awake()
     {
         stateMachine = new GameStateMachine();
 
         tutorialState = new TutorialState(this);
-        cutsceneState = new CutsceneState(this);
         memorizationState = new MemorizationState(this);
         choiceState = new ChoiceState(this);
+        gameEndState = new GameEndState(this);
     }
 
     void Start()
     {
-        stateMachine.ChangeState(tutorialState);
+        ChangeState(tutorialState);
     }
 
     void Update()
     {
         stateMachine.Update();
+    }
+    void ResetGame()
+    {
+        isWin = false;
+        tentativCounter = 0;
+        errorCounter = 0;
+
+        ChangeState(tutorialState);
     }
 
     public void ChangeState(IGameState newState)
@@ -99,9 +116,13 @@ public class GameManager : MonoBehaviour
     private void DoWin()
     {
         Debug.Log("You Win!");
+        isWin = true;
+        ChangeState(gameEndState);
     }
     private void DoGameOver()
     {
         Debug.Log("Game Over!");
+        isWin = false;
+        ChangeState(gameEndState);
     }
 }

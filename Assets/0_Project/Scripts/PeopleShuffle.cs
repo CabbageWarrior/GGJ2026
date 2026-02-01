@@ -168,6 +168,18 @@ public class PeopleShuffle : MonoBehaviour
             }
         }
     }
+
+    public void SetChoicePhase(bool p_isChoiceTime)
+    {
+        foreach (var person in allPeople)
+        {
+            Peasant peasantComponent = person.GetComponent<Peasant>();
+            if (peasantComponent != null)
+            {
+                peasantComponent.SetChoicePhase(p_isChoiceTime);
+            }
+        }
+    }
 }
 
 // Shuffle extension

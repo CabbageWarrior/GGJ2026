@@ -8,7 +8,7 @@ public class Peasant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     public SpriteRenderer bodyRenderer;
     public SpriteMask patternMask;
     public SpriteRenderer patternRenderer;
-    
+
     public SpriteRenderer armUp1Renderer;
     public SpriteRenderer armUp2Renderer;
     public SpriteMask armUp1PatternMask;
@@ -114,9 +114,12 @@ public class Peasant : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         feetRenderer1.sprite = gameManager.peasantParts.shoesSprite;
         feetRenderer2.sprite = gameManager.peasantParts.shoesSprite;
 
-        isChoiceTime = true;
-
         removedShoes.SetActive(false);
+    }
+
+    public void SetChoicePhase(bool p_isChoiceTime)
+    {
+        isChoiceTime = p_isChoiceTime;
     }
 
     public void OnPointerClick(PointerEventData eventData)
