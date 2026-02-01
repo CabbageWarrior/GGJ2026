@@ -11,6 +11,7 @@ public enum GameState
 
 public class PauseManager : MonoBehaviour
 {
+    public AudioManager audioManager;
     [Header("References")]
     public TimelineCurtainBlocker curtainBlocker;
     public GameObject pauseMenuUI;
@@ -60,13 +61,22 @@ public class PauseManager : MonoBehaviour
 
     // Collegalo al bottone "RESTART"
     public void OnRestartButton()
+{
+    Time.timeScale = 1f;
+    
+    // 1. Force stop/reset music logic
+    if (audioManager != null)
     {
-        // Importante: ripristina il tempo prima di ricaricare, altrimenti la nuova scena parte freezata!
-        Time.timeScale = 1f;
-        
-        // Ricarica la scena attuale
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        audioManager.UnpauseMusic();
+        // Force it to play Scene 1 music immediately? 
+        // Or just let the Scene 1 script handle it.
+        // Let's try stopping the current music so the next one feels fresh.
+        // AudioManager.Instance.Music.Stop(); // (You would need to add a Stop function)
     }
+
+    // 2. Load Scene 1 explicitly (as you requested)
+    SceneManager.LoadScene(1); 
+}
 
     // Collegalo al bottone "QUIT"
     public void OnQuitButton()

@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelMusicPlayer
   audioManager: {fileID: 537808392}
-  introTrack: 2
+  introTrack: 0
   mainLoopTrack: 3
   playOnStart: 1
   startDelay: 0
